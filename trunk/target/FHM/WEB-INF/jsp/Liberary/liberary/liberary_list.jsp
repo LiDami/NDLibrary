@@ -10,7 +10,21 @@
 <html lang="en">
 	<head>
 	<base href="<%=basePath%>"><!-- jsp文件头和头部 -->
-	<%@ include file="../../system/admin/top.jsp"%> 
+	<%@ include file="../../system/admin/top.jsp"%>
+		<style>
+			table td{
+				max-width:500px;
+				word-wrap:
+						break-word;
+				text-overflow:ellipsis;
+				white-space:nowrap;
+				overflow:hidden;
+			}
+			table td:hover{
+				white-space:normal;
+				overflow:auto;
+			}
+		</style>
 	</head>
 <body>
 		
@@ -83,7 +97,7 @@
 										<td>${var.LIB_TITLE}</td>
 										<td > ${var.LIB_CON}</td>
 										<td >${var.LIB_VIDEO}</td>
-								<td style="width: 30px;height: 5px"  class="center">
+								<th style="width: 30px;height: 5px"  class="center">
 									<div class='hidden-phone visible-desktop btn-group'>
 									
 										<c:if test="${QX.edit != 1 && QX.del != 1 }">
@@ -101,7 +115,7 @@
 										</ul>
 										</div>
 									</div>
-								</td>
+								</th>
 							</tr>
 						
 						</c:forEach>

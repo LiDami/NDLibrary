@@ -218,7 +218,7 @@ public class ScoreResultController extends BaseController {
 				PageData vpd = new PageData();
 				vpd.put("var1", varOList.get(i).getString("NAME"));	//1
 				vpd.put("var2", varOList.get(i).getString("NUMBER"));	//2
-				vpd.put("var3", varOList.get(i).getString("SCORE"));	//3
+				vpd.put("var3", varOList.get(i).get("SCORE").toString());	//3
 				vpd.put("var4", varOList.get(i).get("START_TIME").toString());	//4
 				vpd.put("var5", varOList.get(i).get("END_TIME").toString());	//5
 				vpd.put("var6", varOList.get(i).get("TOTAL_TIME").toString());	//6

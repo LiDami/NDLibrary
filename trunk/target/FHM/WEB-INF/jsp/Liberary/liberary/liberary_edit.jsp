@@ -87,7 +87,7 @@
 					<%--<textarea name="LIB_CON" id="LIB_CON" cols="30" rows="10" maxlength="3200" placeholder="这里输入内容" style="width: 491px; height: 110px;">${pd.LIB_CON}</textarea>--%>
 				<%--</td>--%>
 				<td>
-					<script id="container2" name="INF_CON" type="text/plain"
+					<script id="container2" name="LIB_CON" type="text/plain"
 							value="${pd.LIB_CON}"	style="width:500px;height:190px;">${pd.LIB_CON}</script>
                     <script type="text/javascript">
                     var ue = UE.getEditor('container2');

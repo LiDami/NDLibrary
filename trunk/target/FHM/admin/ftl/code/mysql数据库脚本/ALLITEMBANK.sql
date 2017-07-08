@@ -1,0 +1,19 @@
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `ALLITEMBANK`
+-- ----------------------------
+DROP TABLE IF EXISTS `ALLITEMBANK`;
+CREATE TABLE `ALLITEMBANK` (
+ 		`ALLITEMBANK_ID` varchar(100) NOT NULL,
+		`TOPIC` varchar(255) DEFAULT NULL COMMENT '题目',
+		`OPITON_A` varchar(255) DEFAULT NULL COMMENT 'A选项',
+		`OPITON_B` varchar(255) DEFAULT NULL COMMENT 'B选项',
+		`OPITON_C` varchar(255) DEFAULT NULL COMMENT 'C选项',
+		`OPITON_D` varchar(255) DEFAULT NULL COMMENT 'D选项',
+		`FLAG` int(11) NOT NULL COMMENT '判断选项',
+		`RANK` int(11) NOT NULL COMMENT '类别',
+		`ANSWER` varchar(255) DEFAULT NULL COMMENT '答案',
+  		PRIMARY KEY (`ALLITEMBANK_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

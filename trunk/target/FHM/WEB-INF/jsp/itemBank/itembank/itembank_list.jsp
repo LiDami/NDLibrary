@@ -9,7 +9,22 @@
 <html lang="en">
 	<head>
 	<base href="<%=basePath%>"><!-- jsp文件头和头部 -->
-	<%@ include file="../../system/admin/top.jsp"%> 
+	<%@ include file="../../system/admin/top.jsp"%>
+		<style>
+			table td{
+				max-width:500px;
+				word-wrap:
+						break-word;
+				text-overflow:ellipsis;
+				white-space:nowrap;
+				overflow:hidden;
+			}
+			table td:hover{
+				white-space:normal;
+				overflow:auto;
+			}
+		</style>
+
 	</head>
 <body>
 		

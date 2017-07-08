@@ -92,7 +92,7 @@
 				a.TOTAL_TIME,	
 				a.SC_ID
 		from 
-				SCORERESULT a
+				SCORERESULT a ORDER BY SCORE DESC,TOTAL_TIME
 	</select>
 
 

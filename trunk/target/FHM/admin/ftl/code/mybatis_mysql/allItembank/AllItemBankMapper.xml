@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AllItemBankMapper">
+	
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="pd">
+		insert into ALLITEMBANK(
+			TOPIC,	
+			OPITON_A,	
+			OPITON_B,	
+			OPITON_C,	
+			OPITON_D,	
+			FLAG,	
+			RANK,	
+			ANSWER,	
+			ALLITEMBANK_ID
+		) values (
+			#{TOPIC},	
+			#{OPITON_A},	
+			#{OPITON_B},	
+			#{OPITON_C},	
+			#{OPITON_D},	
+			#{FLAG},	
+			#{RANK},	
+			#{ANSWER},	
+			#{ALLITEMBANK_ID}
+		)
+	</insert>
+	
+	
+	<!-- 删除-->
+	<delete id="delete" parameterType="pd">
+		delete from ALLITEMBANK
+		where 
+			ALLITEMBANK_ID = #{ALLITEMBANK_ID}
+	</delete>
+	
+	
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd">
+		update  ALLITEMBANK
+			set 
+				TOPIC = #{TOPIC},
+				OPITON_A = #{OPITON_A},
+				OPITON_B = #{OPITON_B},
+				OPITON_C = #{OPITON_C},
+				OPITON_D = #{OPITON_D},
+				FLAG = #{FLAG},
+				RANK = #{RANK},
+				ANSWER = #{ANSWER},
+			ALLITEMBANK_ID = ALLITEMBANK_ID
+			where 
+				ALLITEMBANK_ID = #{ALLITEMBANK_ID}
+	</update>
+	
+	
+	<!-- 通过ID获取数据 -->
+	<select id="findById" parameterType="pd" resultType="pd">
+		select 
+			TOPIC,	
+			OPITON_A,	
+			OPITON_B,	
+			OPITON_C,	
+			OPITON_D,	
+			FLAG,	
+			RANK,	
+			ANSWER,	
+			ALLITEMBANK_ID
+		from 
+			ALLITEMBANK
+		where 
+			ALLITEMBANK_ID = #{ALLITEMBANK_ID}
+	</select>
+	
+	
+	<!-- 列表 -->
+	<select id="datalistPage" parameterType="page" resultType="pd">
+		select
+				a.TOPIC,	
+				a.OPITON_A,	
+				a.OPITON_B,	
+				a.OPITON_C,	
+				a.OPITON_D,	
+				a.FLAG,	
+				a.RANK,	
+				a.ANSWER,	
+				a.ALLITEMBANK_ID
+		from 
+				ALLITEMBANK a
+	</select>
+	
+	<!-- 列表(全部) -->
+	<select id="listAll" parameterType="pd" resultType="pd">
+		select
+				a.TOPIC,	
+				a.OPITON_A,	
+				a.OPITON_B,	
+				a.OPITON_C,	
+				a.OPITON_D,	
+				a.FLAG,	
+				a.RANK,	
+				a.ANSWER,	
+				a.ALLITEMBANK_ID
+		from 
+				ALLITEMBANK a
+	</select>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteAll" parameterType="String">
+		delete from ALLITEMBANK
+		where 
+			ALLITEMBANK_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+                 #{item}
+		</foreach>
+	</delete>
+	
+</mapper>

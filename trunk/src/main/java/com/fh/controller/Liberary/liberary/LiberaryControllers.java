@@ -179,7 +179,7 @@ public class LiberaryControllers extends BaseController {
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
-//	分数结果
+//	分数结果查询
 	@RequestMapping(value="/scoreresult")
 	@ResponseBody
 	public Object scoreresult(Page page)throws Exception {
@@ -188,6 +188,30 @@ public class LiberaryControllers extends BaseController {
 		List<PageData> varList = scoreResultService.list(page);    //列出scoreresult列表
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
+	}
+
+	//分数结果保存
+	@RequestMapping(value="/scoreresultsave")
+	@ResponseBody
+	public void scoreResultSave()throws Exception{
+		PageData pd = new PageData();
+		pd = this.getPageData();
+		pd.put("ID", this.get32UUID());	//主键
+		scoreResultService.save(pd);
+//		return  null;
+	}
+
+
+	//考试成功后信息保存
+
+	@RequestMapping("/successSave")
+	@ResponseBody
+	public void successSave()throws Exception{
+		PageData pd = new PageData();
+		pd = this.getPageData();
+		pd.put("ID", this.get32UUID());	//主键
+		successService.save(pd);
+		System.out.println("考试信息：="+pd);
 	}
 //	考试成功后信息
 	@RequestMapping(value="/success")
@@ -199,4 +223,7 @@ public class LiberaryControllers extends BaseController {
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
+
+
+
 }

@@ -69,11 +69,19 @@
 		<table id="table_report" class="table table-striped table-bordered table-hover">
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">标题:</td>
-				<td><input type="text" name="OFF_TITLE" id="OFF_TITLE" value="${pd.OFF_TITLE}" maxlength="32" placeholder="这里输入标题" title="标题"/></td>
+				<td><input type="text" style="width: 490px;height: 32px;" name="OFF_TITLE" id="OFF_TITLE" value="${pd.OFF_TITLE}" maxlength="32" placeholder="这里输入标题" title="标题"/></td>
 			</tr>
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">内容:</td>
-				<td><input type="text" name="OFF_CON" id="OFF_CON" value="${pd.OFF_CON}" maxlength="32" placeholder="这里输入内容" title="内容"/></td>
+				<%--<td><input type="text" name="OFF_CON" id="OFF_CON" value="${pd.OFF_CON}" maxlength="32" placeholder="这里输入内容" title="内容"/></td>--%>
+				<td>
+					<script id="container2" name="OFF_CON" type="text/plain"
+							value="${pd.OFF_CON}"	style="width:500px;height:190px;">${pd.OFF_CON}</script>
+                    <script type="text/javascript">
+                    var ue = UE.getEditor('container2');
+					</script>
+				</td>
+
 			</tr>
 			<tr>
 				<td style="text-align: center;" colspan="10">

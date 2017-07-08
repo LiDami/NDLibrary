@@ -97,9 +97,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td style="width:70px;text-align: right;padding-top: 13px;">视频上传:</td>
+				<td style="width:70px;text-align: right;padding-top: 13px;">上传:</td>
 				<td>
-					<script id="container2" name="LIB_VIDEO" type="text/plain" style="width:500px;height:190px;"></script>
+					<script id="container2" name="BOOK_VIDEO" type="text/plain" style="width:500px;height:190px;">${pd.BOOK_VIDEO}</script>
                     <script type="text/javascript">
                     var ue = UE.getEditor('container2');
 					</script>

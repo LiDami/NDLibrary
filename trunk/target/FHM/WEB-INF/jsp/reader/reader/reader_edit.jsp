@@ -79,16 +79,34 @@
 		<table id="table_report" class="table table-striped table-bordered table-hover">
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">标题:</td>
-				<td><input type="text" name="RED_TITLE" id="RED_TITLE" value="${pd.RED_TITLE}" maxlength="32" placeholder="这里输入标题" title="标题"/></td>
+				<td><input type="text" style="width: 490px;height: 32px;" name="RED_TITLE" id="RED_TITLE" value="${pd.RED_TITLE}" maxlength="32" placeholder="这里输入标题" title="标题"/></td>
 			</tr>
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">内容:</td>
-				<td><input type="text" name="RED_CON" id="RED_CON" value="${pd.RED_CON}" maxlength="32" placeholder="这里输入内容" title="内容"/></td>
+				<%--<td><input type="text" name="RED_CON" id="RED_CON" value="${pd.RED_CON}" maxlength="32" placeholder="这里输入内容" title="内容"/></td>--%>
+				td>
+				<script id="container2" name="RED_CON" type="text/plain"
+						value="${pd.RED_CON}"	style="width:500px;height:190px;">${pd.RED_CON}</script>
+                <script type="text/javascript">
+                var ue = UE.getEditor('container2');
+				</script>
+				</td>
 			</tr>
 			<%--<tr>--%>
 				<%--<td style="width:70px;text-align: right;padding-top: 13px;">视频:</td>--%>
 				<%--<td><input type="text" name="RED_VIDEO" id="RED_VIDEO" value="${pd.RED_VIDEO}" maxlength="32" placeholder="这里输入视频" title="视频"/></td>--%>
 			<%--</tr>--%>
+
+			<tr>
+				<td style="width:70px;text-align: right;padding-top: 13px;">上传:</td>
+				<td>
+					<script id="container" name="RED_VIDEO" type="text/plain" style="width:500px;height:190px;">${pd.RED_VIDEO}</script>
+                    <script type="text/javascript">
+                    var ue = UE.getEditor('container');
+					</script>
+				</td>
+			</tr>
+
 			<tr>
 				<td style="text-align: center;" colspan="10">
 					<a class="btn btn-mini btn-primary" onclick="save();">保存</a>

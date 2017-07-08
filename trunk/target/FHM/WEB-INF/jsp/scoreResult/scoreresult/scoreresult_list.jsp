@@ -90,25 +90,25 @@
 										<td>${var.START_TIME}</td>
 										<td>${var.END_TIME}</td>
 										<td>${var.TOTAL_TIME}</td>
-								<td style="width: 30px;" class="center">
-									<div class='hidden-phone visible-desktop btn-group'>
-									
-										<c:if test="${QX.edit != 1 && QX.del != 1 }">
-										<span class="label label-large label-grey arrowed-in-right arrowed-in"><i class="icon-lock" title="无权限"></i></span>
-										</c:if>
-										<div class="inline position-relative">
-										<%--<button class="btn btn-mini btn-info" data-toggle="dropdown"><i class="icon-cog icon-only"></i></button>--%>
-										<%--<ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">--%>
-											<%--<c:if RandomWithIterator="${QX.edit == 1 }">--%>
-											<%--<li><a style="cursor:pointer;" title="编辑" onclick="edit('${var.ID}');" class="tooltip-success" data-rel="tooltip" title="" data-placement="left"><span class="green"><i class="icon-edit"></i></span></a></li>--%>
-											<%--</c:if>--%>
-											<%--<c:if RandomWithIterator="${QX.del == 1 }">--%>
-											<%--<li><a style="cursor:pointer;" title="删除" onclick="del('${var.ID}');" class="tooltip-error" data-rel="tooltip" title="" data-placement="left"><span class="red"><i class="icon-trash"></i></span> </a></li>--%>
-											<%--</c:if>--%>
-										<%--</ul>--%>
-										</div>
-									</div>
-								</td>
+								<%--<td style="width: 30px;" class="center">--%>
+									<%--<div class='hidden-phone visible-desktop btn-group'>--%>
+									<%----%>
+										<%--<c:if test="${QX.edit != 1 && QX.del != 1 }">--%>
+										<%--<span class="label label-large label-grey arrowed-in-right arrowed-in"><i class="icon-lock" title="无权限"></i></span>--%>
+										<%--</c:if>--%>
+										<%--&lt;%&ndash;<div class="inline position-relative">&ndash;%&gt;--%>
+										<%--&lt;%&ndash;<button class="btn btn-mini btn-info" data-toggle="dropdown"><i class="icon-cog icon-only"></i></button>&ndash;%&gt;--%>
+										<%--&lt;%&ndash;<ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">&ndash;%&gt;--%>
+											<%--&lt;%&ndash;<c:if RandomWithIterator="${QX.edit == 1 }">&ndash;%&gt;--%>
+											<%--&lt;%&ndash;<li><a style="cursor:pointer;" title="编辑" onclick="edit('${var.ID}');" class="tooltip-success" data-rel="tooltip" title="" data-placement="left"><span class="green"><i class="icon-edit"></i></span></a></li>&ndash;%&gt;--%>
+											<%--&lt;%&ndash;</c:if>&ndash;%&gt;--%>
+											<%--&lt;%&ndash;<c:if RandomWithIterator="${QX.del == 1 }">&ndash;%&gt;--%>
+											<%--&lt;%&ndash;<li><a style="cursor:pointer;" title="删除" onclick="del('${var.ID}');" class="tooltip-error" data-rel="tooltip" title="" data-placement="left"><span class="red"><i class="icon-trash"></i></span> </a></li>&ndash;%&gt;--%>
+											<%--&lt;%&ndash;</c:if>&ndash;%&gt;--%>
+										<%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
+										<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+									<%--</div>--%>
+								<%--</td>--%>
 							</tr>
 						
 						</c:forEach>

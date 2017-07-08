@@ -72,6 +72,26 @@
 			$("#EMAIL").focus();
 			return false;
 		}
+		if($("#INSTITUTE").val()==""){
+			$("#INSTITUTE").tips({
+				side:3,
+	            msg:'请输入学院',
+	            bg:'#AE81FF',
+	            time:2
+	        });
+			$("#INSTITUTE").focus();
+			return false;
+		}
+		if($("#MAJOR").val()==""){
+			$("#MAJOR").tips({
+				side:3,
+	            msg:'请输入专业',
+	            bg:'#AE81FF',
+	            time:2
+	        });
+			$("#MAJOR").focus();
+			return false;
+		}
 		$("#Form").submit();
 		$("#zhongxin").hide();
 		$("#zhongxin2").show();
@@ -81,24 +101,32 @@
 	</head>
 <body>
 	<form action="success/${msg }.do" name="Form" id="Form" method="post">
-		<input type="hidden" name="ID" id="ID" value="${pd.ID}"/>
+		<input type="hidden" name="SU_ID" id="SU_ID" value="${pd.SU_ID}"/>
 		<div id="zhongxin">
 		<table id="table_report" class="table table-striped table-bordered table-hover">
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">姓名:</td>
-				<td><input type="text" name="NAME" id="NAME" value="${pd.NAME}" maxlength="32" placeholder="这里输入姓名" title="姓名"/></td>
+				<td><input type="text" disabled="disabled" style="width: 490px;height: 32px;" name="NAME" id="NAME" value="${pd.NAME}" maxlength="32" placeholder="这里输入姓名" title="姓名"/></td>
 			</tr>
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">学号:</td>
-				<td><input type="text" name="NUMBER" id="NUMBER" value="${pd.NUMBER}" maxlength="32" placeholder="这里输入学号" title="学号"/></td>
+				<td><input type="text" disabled="disabled" style="width: 490px;height: 32px;" name="NUMBER" id="NUMBER" value="${pd.NUMBER}" maxlength="32" placeholder="这里输入学号" title="学号"/></td>
 			</tr>
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">电话:</td>
-				<td><input type="text" name="PHONE" id="PHONE" value="${pd.PHONE}" maxlength="32" placeholder="这里输入电话" title="电话"/></td>
+				<td><input type="text" style="width: 490px;height: 32px;" name="PHONE" id="PHONE" value="${pd.PHONE}" maxlength="32" placeholder="这里输入电话" title="电话"/></td>
 			</tr>
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">邮箱:</td>
-				<td><input type="text" name="EMAIL" id="EMAIL" value="${pd.EMAIL}" maxlength="32" placeholder="这里输入邮箱" title="邮箱"/></td>
+				<td><input type="text" style="width: 490px;height: 32px;" name="EMAIL" id="EMAIL" value="${pd.EMAIL}" maxlength="32" placeholder="这里输入邮箱" title="邮箱"/></td>
+			</tr>
+			<tr>
+				<td style="width:70px;text-align: right;padding-top: 13px;">学院:</td>
+				<td><input type="text" disabled="disabled" style="width: 490px;height: 32px;" name="INSTITUTE" id="INSTITUTE" value="${pd.INSTITUTE}" maxlength="32" placeholder="这里输入学院" title="学院"/></td>
+			</tr>
+			<tr>
+				<td style="width:70px;text-align: right;padding-top: 13px;">专业:</td>
+				<td><input type="text" disabled="disabled" style="width: 490px;height: 32px;" name="MAJOR" id="MAJOR" value="${pd.MAJOR}" maxlength="32" placeholder="这里输入专业" title="专业"/></td>
 			</tr>
 			<tr>
 				<td style="text-align: center;" colspan="10">

@@ -24,30 +24,30 @@
 	
 			<!-- 检索  -->
 			<form action="success/list.do" method="post" name="Form" id="Form">
-			<table>
-				<tr>
-					<td>
-						<span class="input-icon">
-							<input autocomplete="off" id="nav-search-input" type="text" name="field1" value="" placeholder="这里输入关键词" />
-							<i id="nav-search-icon" class="icon-search"></i>
-						</span>
-					</td>
-					<td><input class="span10 date-picker" name="lastLoginStart" id="lastLoginStart" value="${pd.lastLoginStart}" type="text" data-date-format="yyyy-mm-dd" readonly="readonly" style="width:88px;" placeholder="开始日期"/></td>
-					<td><input class="span10 date-picker" name="lastLoginEnd" id="lastLoginEnd" value="${pd.lastLoginEnd}" type="text" data-date-format="yyyy-mm-dd" readonly="readonly" style="width:88px;" placeholder="结束日期"/></td>
-					<td style="vertical-align:top;"> 
-					 	<select class="chzn-select" name="field2" id="field2" data-placeholder="请选择" style="vertical-align:top;width: 120px;">
-							<option value=""></option>
-							<option value="">全部</option>
-							<option value="">1</option>
-							<option value="">2</option>
-					  	</select>
-					</td>
-					<td style="vertical-align:top;"><button class="btn btn-mini btn-light" onclick="search();"  title="检索"><i id="nav-search-icon" class="icon-search"></i></button></td>
-					<c:if test="${QX.cha == 1 }">
-					<td style="vertical-align:top;"><a class="btn btn-mini btn-light" onclick="toExcel();" title="导出到EXCEL"><i id="nav-search-icon" class="icon-download-alt"></i></a></td>
-					</c:if>
-				</tr>
-			</table>
+			<%--<table>--%>
+				<%--<tr>--%>
+					<%--<td>--%>
+						<%--<span class="input-icon">--%>
+							<%--<input autocomplete="off" id="nav-search-input" type="text" name="field1" value="" placeholder="这里输入关键词" />--%>
+							<%--<i id="nav-search-icon" class="icon-search"></i>--%>
+						<%--</span>--%>
+					<%--</td>--%>
+					<%--<td><input class="span10 date-picker" name="lastLoginStart" id="lastLoginStart" value="${pd.lastLoginStart}" type="text" data-date-format="yyyy-mm-dd" readonly="readonly" style="width:88px;" placeholder="开始日期"/></td>--%>
+					<%--<td><input class="span10 date-picker" name="lastLoginEnd" id="lastLoginEnd" value="${pd.lastLoginEnd}" type="text" data-date-format="yyyy-mm-dd" readonly="readonly" style="width:88px;" placeholder="结束日期"/></td>--%>
+					<%--<td style="vertical-align:top;"> --%>
+					 	<%--<select class="chzn-select" name="field2" id="field2" data-placeholder="请选择" style="vertical-align:top;width: 120px;">--%>
+							<%--<option value=""></option>--%>
+							<%--<option value="">全部</option>--%>
+							<%--<option value="">1</option>--%>
+							<%--<option value="">2</option>--%>
+					  	<%--</select>--%>
+					<%--</td>--%>
+					<%--<td style="vertical-align:top;"><button class="btn btn-mini btn-light" onclick="search();"  title="检索"><i id="nav-search-icon" class="icon-search"></i></button></td>--%>
+					<%--<c:if test="${QX.cha == 1 }">--%>
+					<%--<td style="vertical-align:top;"><a class="btn btn-mini btn-light" onclick="toExcel();" title="导出到EXCEL"><i id="nav-search-icon" class="icon-download-alt"></i></a></td>--%>
+					<%--</c:if>--%>
+				<%--</tr>--%>
+			<%--</table>--%>
 			<!-- 检索  -->
 		
 		
@@ -58,12 +58,14 @@
 						<th class="center">
 						<label><input type="checkbox" id="zcheckbox" /><span class="lbl"></span></label>
 						</th>
-						<th nowrap class="center">序号</th>
-						<th nowrap class="center">姓名</th>
-						<th nowrap class="center">学号</th>
-						<th nowrap class="center">电话</th>
-						<th nowrap class="center">邮箱</th>
-						<th nowrap class="center">操作</th>
+						<th class="center">序号</th>
+						<th class="center">姓名</th>
+						<th class="center">学号</th>
+						<th class="center">电话</th>
+						<th class="center">邮箱</th>
+						<th class="center">学院</th>
+						<th class="center">专业</th>
+						<th class="center">操作</th>
 					</tr>
 				</thead>
 										
@@ -76,16 +78,18 @@
 						<c:forEach items="${varList}" var="var" varStatus="vs">
 							<tr>
 								<td class='center' style="width: 30px;">
-									<label><input type='checkbox' name='ids' value="${var.ID}" /><span class="lbl"></span></label>
+									<label><input type='checkbox' name='ids' value="${var.SU_ID}" /><span class="lbl"></span></label>
 								</td>
 								<td class='center' style="width: 30px;">${vs.index+1}</td>
 										<td>${var.NAME}</td>
 										<td>${var.NUMBER}</td>
 										<td>${var.PHONE}</td>
 										<td>${var.EMAIL}</td>
+										<td>${var.INSTITUTE}</td>
+										<td>${var.MAJOR}</td>
 								<td style="width: 30px;" class="center">
 									<div class='hidden-phone visible-desktop btn-group'>
-									
+
 										<c:if test="${QX.edit != 1 && QX.del != 1 }">
 										<span class="label label-large label-grey arrowed-in-right arrowed-in"><i class="icon-lock" title="无权限"></i></span>
 										</c:if>
@@ -93,10 +97,10 @@
 										<button class="btn btn-mini btn-info" data-toggle="dropdown"><i class="icon-cog icon-only"></i></button>
 										<ul class="dropdown-menu dropdown-icon-only dropdown-light pull-right dropdown-caret dropdown-close">
 											<c:if test="${QX.edit == 1 }">
-											<li><a style="cursor:pointer;" title="编辑" onclick="edit('${var.ID}');" class="tooltip-success" data-rel="tooltip" title="" data-placement="left"><span class="green"><i class="icon-edit"></i></span></a></li>
+											<li><a style="cursor:pointer;" title="编辑" onclick="edit('${var.SU_ID}');" class="tooltip-success" data-rel="tooltip" title="" data-placement="left"><span class="green"><i class="icon-edit"></i></span></a></li>
 											</c:if>
 											<c:if test="${QX.del == 1 }">
-											<li><a style="cursor:pointer;" title="删除" onclick="del('${var.ID}');" class="tooltip-error" data-rel="tooltip" title="" data-placement="left"><span class="red"><i class="icon-trash"></i></span> </a></li>
+											<li><a style="cursor:pointer;" title="删除" onclick="del('${var.SU_ID}');" class="tooltip-error" data-rel="tooltip" title="" data-placement="left"><span class="red"><i class="icon-trash"></i></span> </a></li>
 											</c:if>
 										</ul>
 										</div>
@@ -127,12 +131,12 @@
 		<table style="width:100%;">
 			<tr>
 				<td style="vertical-align:top;">
-					<c:if test="${QX.add == 1 }">
-					<a class="btn btn-small btn-success" onclick="add();">新增</a>
-					</c:if>
-					<c:if test="${QX.del == 1 }">
-					<a class="btn btn-small btn-danger" onclick="makeAll('确定要删除选中的数据吗?');" title="批量删除" ><i class='icon-trash'></i></a>
-					</c:if>
+					<%--<c:if test="${QX.add == 1 }">--%>
+					<%--<a class="btn btn-small btn-success" onclick="add();">新增</a>--%>
+					<%--</c:if>--%>
+					<%--<c:if test="${QX.del == 1 }">--%>
+					<%--<a class="btn btn-small btn-danger" onclick="makeAll('确定要删除选中的数据吗?');" title="批量删除" ><i class='icon-trash'></i></a>--%>
+					<%--</c:if>--%>
 				</td>
 				<td style="vertical-align:top;"><div class="pagination" style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div></td>
 			</tr>
@@ -183,8 +187,7 @@
 			 diag.Drag=true;
 			 diag.Title ="新增";
 			 diag.URL = '<%=basePath%>success/goAdd.do';
-            diag.Width = 700;
-            diag.Height = 688;
+			 diag.Width = 700;			 diag.Height = 688;
 			 diag.CancelEvent = function(){ //关闭事件
 				 if(diag.innerFrame.contentWindow.document.getElementById('zhongxin').style.display == 'none'){
 					 if('${page.currentPage}' == '0'){
@@ -204,7 +207,7 @@
 			bootbox.confirm("确定要删除吗?", function(result) {
 				if(result) {
 					top.jzts();
-					var url = "<%=basePath%>success/delete.do?ID="+Id+"&tm="+new Date().getTime();
+					var url = "<%=basePath%>success/delete.do?SU_ID="+Id+"&tm="+new Date().getTime();
 					$.get(url,function(data){
 						nextPage(${page.currentPage});
 					});
@@ -218,7 +221,7 @@
 			 var diag = new top.Dialog();
 			 diag.Drag=true;
 			 diag.Title ="编辑";
-			 diag.URL = '<%=basePath%>success/goEdit.do?ID='+Id;
+			 diag.URL = '<%=basePath%>success/goEdit.do?SU_ID='+Id;
 			 diag.Width = 700;			 diag.Height = 688;
 			 diag.CancelEvent = function(){ //关闭事件
 				 if(diag.innerFrame.contentWindow.document.getElementById('zhongxin').style.display == 'none'){

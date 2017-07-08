@@ -83,8 +83,15 @@
 
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">内容:</td>
+				<%--<td>--%>
+					<%--<textarea name="LIB_CON" id="LIB_CON" cols="30" rows="10" maxlength="3200" placeholder="这里输入内容" style="width: 491px; height: 110px;">${pd.LIB_CON}</textarea>--%>
+				<%--</td>--%>
 				<td>
-					<textarea name="LIB_CON" id="LIB_CON" cols="30" rows="10" maxlength="3200" placeholder="这里输入内容" style="width: 491px; height: 110px;">${pd.LIB_CON}</textarea>
+					<script id="container2" name="INF_CON" type="text/plain"
+							value="${pd.LIB_CON}"	style="width:500px;height:190px;">${pd.LIB_CON}</script>
+                    <script type="text/javascript">
+                    var ue = UE.getEditor('container2');
+					</script>
 				</td>
 			</tr>
 			<%--<tr>--%>
@@ -92,9 +99,9 @@
 				<%--<td><input type="text" name="LIB_VIDEO" id="LIB_VIDEO" value="${pd.LIB_VIDEO}" maxlength="32" placeholder="这里输入视频" title="视频"/></td>--%>
 			<%--</tr>--%>
 			<tr>
-				<td style="width:70px;text-align: right;padding-top: 13px;">编辑器:</td>
+				<td style="width:70px;text-align: right;padding-top: 13px;">上传:</td>
 				<td>
-					<script id="container" name="LIB_VIDEO" type="text/plain" style="width:500px;height:190px;"></script>
+					<script id="container" name="LIB_VIDEO" type="text/plain" style="width:500px;height:190px;">${pd.LIB_VIDEO}</script>
                     <script type="text/javascript">
                     var ue = UE.getEditor('container');
 					</script>

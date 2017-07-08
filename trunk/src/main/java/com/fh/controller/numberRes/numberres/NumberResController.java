@@ -36,7 +36,7 @@ import com.fh.service.numberRes.numberres.NumberResService;
 /** 
  * 类名称：NumberResController
  * 创建人：FH 
- * 创建时间：2017-07-05
+ * 创建时间：2017-07-07
  */
 @Controller
 @RequestMapping(value="/numberres")
@@ -56,7 +56,7 @@ public class NumberResController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		pd.put("ID", this.get32UUID());	//主键
+		pd.put("NUM_ID", this.get32UUID());	//主键
 		numberresService.save(pd);
 		mv.addObject("msg","success");
 		mv.setViewName("save_result");
@@ -208,7 +208,6 @@ public class NumberResController extends BaseController {
 			titles.add("标题");	//1
 			titles.add("内容");	//2
 			titles.add("视频");	//3
-			titles.add("标志");	//4
 			dataMap.put("titles", titles);
 			List<PageData> varOList = numberresService.listAll(pd);
 			List<PageData> varList = new ArrayList<PageData>();
@@ -217,7 +216,6 @@ public class NumberResController extends BaseController {
 				vpd.put("var1", varOList.get(i).getString("NUM_NAME"));	//1
 				vpd.put("var2", varOList.get(i).getString("NUM_CON"));	//2
 				vpd.put("var3", varOList.get(i).getString("NUM_VIDEO"));	//3
-				vpd.put("var4", varOList.get(i).get("NUM_ID").toString());	//4
 				varList.add(vpd);
 			}
 			dataMap.put("varList", varList);

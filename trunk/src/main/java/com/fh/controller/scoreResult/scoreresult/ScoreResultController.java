@@ -56,7 +56,7 @@ public class ScoreResultController extends BaseController {
 		ModelAndView mv = this.getModelAndView();
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		pd.put("ID", this.get32UUID());	//主键
+		pd.put("SCORERESULT_ID", this.get32UUID());	//主键
 		scoreresultService.save(pd);
 		mv.addObject("msg","success");
 		mv.setViewName("save_result");
@@ -120,8 +120,6 @@ public class ScoreResultController extends BaseController {
 		}
 		return mv;
 	}
-
-
 	
 	/**
 	 * 去新增页面

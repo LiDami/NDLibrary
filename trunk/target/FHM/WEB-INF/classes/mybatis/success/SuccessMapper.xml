@@ -10,12 +10,16 @@
 			NUMBER,	
 			PHONE,	
 			EMAIL,	
+			INSTITUTE,	
+			MAJOR,	
 			SU_ID
 		) values (
 			#{NAME},	
 			#{NUMBER},	
 			#{PHONE},	
 			#{EMAIL},	
+			#{INSTITUTE},	
+			#{MAJOR},	
 			#{SU_ID}
 		)
 	</insert>
@@ -37,6 +41,8 @@
 				NUMBER = #{NUMBER},
 				PHONE = #{PHONE},
 				EMAIL = #{EMAIL},
+				INSTITUTE = #{INSTITUTE},
+				MAJOR = #{MAJOR},
 			SU_ID = SU_ID
 			where 
 				SU_ID = #{SU_ID}
@@ -50,6 +56,8 @@
 			NUMBER,	
 			PHONE,	
 			EMAIL,	
+			INSTITUTE,	
+			MAJOR,	
 			SU_ID
 		from 
 			SUCCESS
@@ -65,6 +73,8 @@
 				a.NUMBER,	
 				a.PHONE,	
 				a.EMAIL,	
+				a.INSTITUTE,	
+				a.MAJOR,	
 				a.SU_ID
 		from 
 				SUCCESS a
@@ -77,6 +87,8 @@
 				a.NUMBER,	
 				a.PHONE,	
 				a.EMAIL,	
+				a.INSTITUTE,	
+				a.MAJOR,	
 				a.SU_ID
 		from 
 				SUCCESS a
@@ -85,8 +97,8 @@
 	<!-- 批量删除 -->
 	<delete id="deleteAll" parameterType="String">
 		delete from SUCCESS
-		where
-		SU_ID in
+		where 
+			SU_ID in
 		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
                  #{item}
 		</foreach>

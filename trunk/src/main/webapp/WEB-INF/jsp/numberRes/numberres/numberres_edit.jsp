@@ -28,9 +28,8 @@
 		<script type="text/javascript" src="static/js/jquery.tips.js"></script>
 		<script type="text/javascript" src="plugins/ueditor/ueditor.config.js"></script>
 		<script type="text/javascript" src="plugins/ueditor/ueditor.all.js"></script>
-
-
-		<script type="text/javascript">
+		
+<script type="text/javascript">
 	
 	
 	//保存
@@ -65,16 +64,6 @@
 			$("#NUM_VIDEO").focus();
 			return false;
 		}
-		if($("#NUM_ID").val()==""){
-			$("#NUM_ID").tips({
-				side:3,
-	            msg:'请输入标志',
-	            bg:'#AE81FF',
-	            time:2
-	        });
-			$("#NUM_ID").focus();
-			return false;
-		}
 		$("#Form").submit();
 		$("#zhongxin").hide();
 		$("#zhongxin2").show();
@@ -84,26 +73,42 @@
 	</head>
 <body>
 	<form action="numberres/${msg }.do" name="Form" id="Form" method="post">
-		<input type="hidden" name="ID" id="ID" value="${pd.ID}"/>
+		<input type="hidden" name="NUM_ID" id="NUM_ID" value="${pd.NUM_ID}"/>
 		<div id="zhongxin">
 		<table id="table_report" class="table table-striped table-bordered table-hover">
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">标题:</td>
-				<td><input type="text" name="NUM_NAME" id="NUM_NAME" value="${pd.NUM_NAME}" maxlength="32" placeholder="这里输入标题" title="标题"/></td>
+				<td><input type="text" style="width: 490px;height: 32px;" name="NUM_NAME" id="NUM_NAME" value="${pd.NUM_NAME}" maxlength="32" placeholder="这里输入标题" title="标题"/></td>
 			</tr>
 			<tr>
 				<td style="width:70px;text-align: right;padding-top: 13px;">内容:</td>
-				<td><input type="text" name="NUM_CON" id="NUM_CON" value="${pd.NUM_CON}" maxlength="32" placeholder="这里输入内容" title="内容"/></td>
+				<%--<td><input type="text" name="NUM_CON" id="NUM_CON" value="${pd.NUM_CON}" maxlength="32" placeholder="这里输入内容" title="内容"/></td>--%>
+				<td>
+				<script id="container2" name="NUM_CON" type="text/plain"
+						value="${pd.NUM_CON}"	style="width:500px;height:190px;">${pd.NUM_CON}</script>
+                <script type="text/javascript">
+                var ue = UE.getEditor('container2');
+				</script>
+				</td>
 			</tr>
+
+
 			<%--<tr>--%>
 				<%--<td style="width:70px;text-align: right;padding-top: 13px;">视频:</td>--%>
 				<%--<td><input type="text" name="NUM_VIDEO" id="NUM_VIDEO" value="${pd.NUM_VIDEO}" maxlength="32" placeholder="这里输入视频" title="视频"/></td>--%>
 			<%--</tr>--%>
+			<%--<tr>--%>
+
+
 			<tr>
-				<td style="width:70px;text-align: right;padding-top: 13px;">标志:</td>
-				<td><input type="number" name="NUM_ID" id="NUM_ID" value="${pd.NUM_ID}" maxlength="32" placeholder="这里输入标志" title="标志"/></td>
+				<td style="width:70px;text-align: right;padding-top: 13px;">上传:</td>
+				<td>
+					<script id="container" name="NUM_VIDEO" type="text/plain" style="width:500px;height:190px;">${pd.NUM_VIDEO}</script>
+                    <script type="text/javascript">
+                    var ue = UE.getEditor('container');
+					</script>
+				</td>
 			</tr>
-			<tr>
 				<td style="text-align: center;" colspan="10">
 					<a class="btn btn-mini btn-primary" onclick="save();">保存</a>
 					<a class="btn btn-mini btn-danger" onclick="top.Dialog.close();">取消</a>

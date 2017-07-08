@@ -1,4 +1,5 @@
-package com.my.db;
+package  com.fh.entity;
+
 
 public class Bookbrr {
   private String id;

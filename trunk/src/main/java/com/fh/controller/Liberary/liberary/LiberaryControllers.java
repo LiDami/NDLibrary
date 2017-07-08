@@ -49,43 +49,54 @@ public class LiberaryControllers extends BaseController {
 	@Autowired
 	private SuccessService successService;
 
-//	入馆须知
+//	本馆概况
+	@RequestMapping(value = "/liberary")
+	@ResponseBody
+	public Object liberary(Page page)throws Exception{
+		PageData pd = new PageData();
+		pd = this.getPageData();
+		List<PageData> varList = liberaryService.list(page);
+		dataMap.put("varList",varList);
+		return AppUtil.returnObject(new PageData(),dataMap);
+
+	}
+
+//	书刊借阅
 	@RequestMapping(value="/bookbrr")
 	@ResponseBody
 	public Object queryAllss(Page page)throws Exception{
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		List<PageData> varList = bookBrrService.list(page);	//列出Liberary列表
+		List<PageData> varList = bookBrrService.list(page);	//列出BookBrr列表
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 
 	}
+//	入馆须知
 	@RequestMapping(value="/enterkno")
 	@ResponseBody
 	public Object enter(Page page)throws Exception {
-
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		List<PageData> varList = enterKnoService.list(page);    //列出Liberary列表
+		List<PageData> varList = enterKnoService.list(page);    //列出EnterKno列表
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
+//	信息交流
 	@RequestMapping(value="/informa")
 	@ResponseBody
 	public Object informa(Page page)throws Exception {
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		List<PageData> varList = informaService.list(page);    //列出Liberary列表
+		List<PageData> varList = informaService.list(page);    //列出information列表
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
-
+//随机试题库
 	@RequestMapping(value="/itembank")
 	@ResponseBody
 	public Object intembank(Page page)throws Exception {
 		PageData pd = new PageData();
-
-
 		pd = this.getPageData();
 		page.setPd(pd);
 		List<PageData>	varLists = itemBankService.listAll(pd);	//列出ItemBankAll列表
@@ -138,42 +149,47 @@ public class LiberaryControllers extends BaseController {
 		dataMap.put("varList", rankListThree);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
+//	数字资源
 	@RequestMapping(value="/numberres")
 	@ResponseBody
 	public Object numberres(Page page)throws Exception {
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		List<PageData> varList = numberResService.list(page);    //列出Liberary列表
+		List<PageData> varList = numberResService.list(page);    //列出numberRes列表
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
+//	常见问题
 	@RequestMapping(value="/question")
 	@ResponseBody
 	public Object question(Page page)throws Exception {
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		List<PageData> varList = questionService.list(page);    //列出Liberary列表
+		List<PageData> varList = questionService.list(page);    //列出question列表
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
+//	读者服务
 	@RequestMapping(value="/reader")
 	@ResponseBody
 	public Object reader(Page page)throws Exception {
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		List<PageData> varList = readerService.list(page);    //列出Liberary列表
+		List<PageData> varList = readerService.list(page);    //列出reader列表
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
+//	分数结果
 	@RequestMapping(value="/scoreresult")
 	@ResponseBody
 	public Object scoreresult(Page page)throws Exception {
 		PageData pd = new PageData();
 		pd = this.getPageData();
-		List<PageData> varList = scoreResultService.list(page);    //列出Liberary列表
+		List<PageData> varList = scoreResultService.list(page);    //列出scoreresult列表
 		dataMap.put("varList", varList);
 		return AppUtil.returnObject(new PageData(), dataMap);
 	}
+//	考试成功后信息
 	@RequestMapping(value="/success")
 	@ResponseBody
 	public Object success(Page page)throws Exception {

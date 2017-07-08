@@ -34,7 +34,6 @@
 				NUM_NAME = #{NUM_NAME},
 				NUM_CON = #{NUM_CON},
 				NUM_VIDEO = #{NUM_VIDEO},
-				NUM_ID = #{NUM_ID},
 			NUM_ID = NUM_ID
 			where 
 				NUM_ID = #{NUM_ID}
@@ -48,7 +47,7 @@
 			NUM_CON,	
 			NUM_VIDEO,	
 			NUM_ID
-		from
+		from 
 			NUMBERRES
 		where 
 			NUM_ID = #{NUM_ID}
@@ -62,7 +61,7 @@
 				a.NUM_CON,	
 				a.NUM_VIDEO,	
 				a.NUM_ID
-		from
+		from 
 				NUMBERRES a
 	</select>
 	
@@ -73,7 +72,7 @@
 				a.NUM_CON,	
 				a.NUM_VIDEO,	
 				a.NUM_ID
-		from
+		from 
 				NUMBERRES a
 	</select>
 	
